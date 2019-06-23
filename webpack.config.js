@@ -5,9 +5,9 @@ const argv = require('yargs-parser')(process.argv.slice(2));
 const _mode = argv.mode || "development";
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const merge = require("webpack-merge");
-const {
-  CheckerPlugin
-} = require('awesome-typescript-loader')
+const {CheckerPlugin} = require('awesome-typescript-loader');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 打包html
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const {join, resolve} = require("path");
 console.log("🍎", argv.mode);
 
@@ -16,7 +16,7 @@ const webpackBaseConfig = {
     app: resolve("./src/web/index.tsx")
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'dist'),
     filename: '[name].[hash:20].js' // 多出口
   },
   resolve: {
@@ -36,7 +36,19 @@ const webpackBaseConfig = {
     ]
   },
   plugins: [
-    new CheckerPlugin()
+    new CleanWebpackPlugin(),
+    new CheckerPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      title: 'hooks',
+      hash: true,
+      minify: {
+        collapseWhitespace: true, // 折叠空行
+        removeAttributeQuotes: true
+      },
+      template: join(__dirname, './src/web/index.html'),
+      // chunks: ['index', 'a'] // index.html 引入index.js
+    })
   ]
 }
 
