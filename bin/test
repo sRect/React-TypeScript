@@ -1,0 +1,12 @@
+#!/Users/fangchaoqun/.nvm/versions/node/v10.15.1/bin node
+const mockdata = {
+  data: {
+    title: 'hello msg 🍎'
+  }
+}
+
+const json2ts = require('json2ts');
+
+let jsonContent = JSON.stringify(mockdata);
+let result = json2ts.convert(jsonContent);
+console.log(result);
