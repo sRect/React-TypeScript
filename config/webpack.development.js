@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     new FriendlyErrorsWebpackPlugin(),
     new WebpackBuildNotifierPlugin({
-      title: "编译成功 🏮",
+      title: "编译结果 🏮：",
       // logo: path.resolve("./img/favicon.png"),
       suppressSuccess: true
     }),

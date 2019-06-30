@@ -2,8 +2,8 @@ import React, {lazy, Suspense, Fragment} from 'react';
 import {BrowserRouter, Switch, Route, Redirect, RouteProps} from 'react-router-dom';
 import Loading from '@web/components/Loading'; // 同步组件
 
-const Home = lazy(() => import('@web/pages/Home')); // 组件懒加载
-const About = lazy(() => import('@web/pages/About'));
+const Home = lazy(() => import(/* webpackChunkName: "home" */'@web/pages/Home')); // 组件懒加载
+const About = lazy(() => import(/* webpackChunkName: "about" */'@web/pages/About'));
 
 const routes: RouteProps[] = [
   { path: '/', exact: true, component: Home },
