@@ -1,8 +1,21 @@
 {
   "compilerOptions": {
-    "allowJs": true
+    "allowJs": true,
+    "module": "esNext",
+    "target": "es5",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "lib": ["es2015"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@web/*": ["./src/web/*"]
+    }
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

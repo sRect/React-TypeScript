@@ -1,26 +1,36 @@
-export interface Data {
-  title: string;
-}
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import RouterConfig from './routes';
 
-export interface Response {
-  data: Data;
-}
+ReactDOM.render(
+  <RouterConfig />,
+  document.querySelector("#app")
+);
 
-class Test {
-  private data;
-  constructor(str: Response) {
-    this.data = str.data;
-  }
 
-  notify() {
-    console.log(this.data);
-  }
-}
+// export interface Data {
+//   title: string;
+// }
 
-const test = new Test({
-  data: {
-    title: 'hello msg 🍎'
-  }
-})
+// export interface Response {
+//   data: Data;
+// }
 
-test.notify();
+// class Test {
+//   private data;
+//   constructor(str: Response) {
+//     this.data = str.data;
+//   }
+
+//   notify() {
+//     console.log(this.data);
+//   }
+// }
+
+// const test = new Test({
+//   data: {
+//     title: 'hello msg 🍎'
+//   }
+// })
+
+// test.notify();

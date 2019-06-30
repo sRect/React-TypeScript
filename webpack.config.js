@@ -22,7 +22,8 @@ const webpackBaseConfig = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
-      '@': resolve(__dirname, './src')
+      '@': resolve(__dirname, './src'),
+      '@web': resolve(__dirname, './src/web')
     }
   },
   module: {
