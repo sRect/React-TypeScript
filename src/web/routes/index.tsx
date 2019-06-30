@@ -19,7 +19,7 @@ const RouterConfig = () => {
             {
               routes.map(route => {
                 const { path, exact, component} = route;
-                return <Route path={path} exact={exact} component={component} />
+                return <Route key={path} path={path} exact={exact} component={component} />
               })
             }
             {/* <Route exact path="/" component={Home} ></Route>
