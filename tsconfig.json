@@ -5,7 +5,7 @@
     "target": "es5",
     "jsx": "react",
     "moduleResolution": "node",
-    "lib": ["es2015"],
+    "lib": ["es2015", "dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
